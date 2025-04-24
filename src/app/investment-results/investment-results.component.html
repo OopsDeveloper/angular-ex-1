@@ -1,0 +1,23 @@
+<p class="center" *ngIf="!results">
+  값을 입력하고 "계산하기" 버튼을 눌러주세요.
+</p>
+<table *ngIf="results">
+  <thead>
+    <tr>
+      <th>연도</th>
+      <th>투자 가치</th>
+      <th>이자 (연간)</th>
+      <th>총 이자</th>
+      <th>투자 원금</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let result of results; trackBy: trackByYear">
+      <td>{{ result.year }}</td>
+      <td>{{ result.valueEndOfYear | currency : "KRW" }}</td>
+      <td>{{ result.interest | currency : "KRW" }}</td>
+      <td>{{ result.totalInterest | currency : "KRW" }}</td>
+      <td>{{ result.totalAmountInvested | currency : "KRW" }}</td>
+    </tr>
+  </tbody>
+</table>
